@@ -9,14 +9,11 @@ export function Features() {
     <section id="features" className="py-24 md:py-36 bg-transparent relative z-10">
       <div className="mx-auto max-w-6xl lg:max-w-7xl px-6">
         
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <h2 className="text-4xl sm:text-5xl font-bold text-white tracking-tight mb-4">
+        {/* Section Header with NO subtext */}
+        <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+          <h2 className="text-4xl sm:text-5xl font-bold text-white tracking-tight">
             What we&apos;re building
           </h2>
-          <p className="text-zinc-400 text-base sm:text-xl font-medium">
-            The same Miyagi experience students use globally — strictly tailored for Indian competitive exams.
-          </p>
         </div>
 
         <div className="relative">
