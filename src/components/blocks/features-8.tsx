@@ -6,11 +6,11 @@ import { MiyagiGazeAvatar } from "@/components/MiyagiGazeAvatar";
 
 export function Features() {
   return (
-    <section id="features" className="py-24 md:py-36 bg-transparent relative z-10">
+    <section id="features" className="py-20 md:py-28 bg-transparent relative z-10">
       <div className="mx-auto max-w-6xl lg:max-w-7xl px-6">
         
-        {/* Section Header with NO subtext */}
-        <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+        {/* Section Header with Tight Clean Margin */}
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
           <h2 className="text-4xl sm:text-5xl font-bold text-white tracking-tight">
             What we&apos;re building
           </h2>

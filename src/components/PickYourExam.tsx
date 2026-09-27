@@ -7,11 +7,11 @@ import { ArrowRight, Check } from "lucide-react";
 
 export function PickYourExam() {
   return (
-    <section id="exams" className="py-24 bg-black border-t border-[#1C1C1E]">
+    <section id="exams" className="py-20 md:py-28 bg-black border-t border-[#1C1C1E]">
       <div className="max-w-6xl mx-auto px-6">
         
-        {/* Centered Section Header without Subtext */}
-        <div className="max-w-2xl mx-auto mb-16 text-center">
+        {/* Centered Section Header without Subtext and with tight margin */}
+        <div className="max-w-2xl mx-auto mb-8 sm:mb-10 text-center">
           <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-white">
             Pick your exam
           </h2>
