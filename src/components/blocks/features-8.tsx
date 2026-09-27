@@ -9,23 +9,26 @@ export function Features() {
     <section id="features" className="py-24 md:py-36 bg-transparent relative z-10">
       <div className="mx-auto max-w-6xl lg:max-w-7xl px-6">
         
-        {/* Section Header without Subtext */}
-        <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-          <h2 className="text-4xl sm:text-5xl font-bold text-white tracking-tight">
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <h2 className="text-4xl sm:text-5xl font-bold text-white tracking-tight mb-4">
             What we&apos;re building
           </h2>
+          <p className="text-zinc-400 text-base sm:text-xl font-medium">
+            The same Miyagi experience students use globally — strictly tailored for Indian competitive exams.
+          </p>
         </div>
 
         <div className="relative">
           <div className="relative z-10 grid grid-cols-6 gap-4 sm:gap-6">
             
-            {/* Card 1: 100% NCERT Line-by-Line Questions */}
-            <Card className="group relative col-span-full flex overflow-hidden lg:col-span-2 bg-[#08080A]/90 border border-[#1C1C20] hover:border-[#FF6B00]/40 transition-colors rounded-2xl p-6 sm:p-8 flex-col justify-between">
+            {/* Card 1: 100% NCERT Line-by-Line Questions (Emerald Green) */}
+            <Card className="group relative col-span-full flex overflow-hidden lg:col-span-2 bg-[#08080A]/90 border border-[#1C1C20] hover:border-emerald-500/40 transition-colors rounded-2xl p-6 sm:p-8 flex-col justify-between">
               <CardContent className="p-0 flex flex-col items-center text-center">
                 {/* Visual Top Container with Pop-out */}
                 <div className="relative flex h-32 w-full max-w-[260px] items-center justify-center">
                   <svg
-                    className="text-zinc-800 absolute inset-0 size-full transform group-hover:scale-108 group-hover:-translate-y-1 transition-all duration-300"
+                    className="text-emerald-500/15 absolute inset-0 size-full transform group-hover:scale-108 group-hover:-translate-y-1 transition-all duration-300"
                     viewBox="0 0 254 104"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -35,7 +38,7 @@ export function Features() {
                       fill="currentColor"
                     />
                   </svg>
-                  <span className="relative z-10 text-5xl sm:text-6xl font-bold text-white transform group-hover:scale-110 group-hover:-translate-y-1 transition-all duration-300 inline-block">
+                  <span className="relative z-10 text-5xl sm:text-6xl font-bold text-emerald-400 transform group-hover:scale-110 group-hover:-translate-y-1 transition-all duration-300 inline-block drop-shadow-[0_0_25px_rgba(16,185,129,0.3)]">
                     100%
                   </span>
                 </div>
@@ -50,13 +53,13 @@ export function Features() {
               </CardContent>
             </Card>
 
-            {/* Card 2: CBT Mode Practice Tests */}
-            <Card className="group relative col-span-full overflow-hidden sm:col-span-3 lg:col-span-2 bg-[#08080A]/90 border border-[#1C1C20] hover:border-[#FF6B00]/40 transition-colors rounded-2xl p-6 sm:p-8 flex flex-col justify-between">
+            {/* Card 2: CBT Mode Practice Tests (Sky Blue / Cyan Pencil) */}
+            <Card className="group relative col-span-full overflow-hidden sm:col-span-3 lg:col-span-2 bg-[#08080A]/90 border border-[#1C1C20] hover:border-sky-500/40 transition-colors rounded-2xl p-6 sm:p-8 flex flex-col justify-between">
               <CardContent className="p-0 flex flex-col items-center text-center">
                 {/* Circular Pencil Badge with Pop-out */}
                 <div className="relative flex h-32 w-full items-center justify-center">
-                  <div className="relative flex aspect-square size-28 rounded-full border border-white/10 before:absolute before:-inset-1.5 before:rounded-full before:border before:border-white/5 bg-[#0E0E12] shadow-inner items-center justify-center transform group-hover:scale-115 group-hover:-translate-y-1.5 transition-all duration-300">
-                    <Pencil className="size-10 text-[#FF6B00]" strokeWidth={2.2} />
+                  <div className="relative flex aspect-square size-28 rounded-full border border-sky-500/20 before:absolute before:-inset-1.5 before:rounded-full before:border before:border-sky-500/10 bg-[#0E0E12] shadow-inner items-center justify-center transform group-hover:scale-115 group-hover:-translate-y-1.5 transition-all duration-300">
+                    <Pencil className="size-10 text-sky-400" strokeWidth={2.2} />
                   </div>
                 </div>
 
@@ -70,18 +73,18 @@ export function Features() {
               </CardContent>
             </Card>
 
-            {/* Card 3: 20,000+ MCQ Bank */}
-            <Card className="group relative col-span-full overflow-hidden sm:col-span-3 lg:col-span-2 bg-[#08080A]/90 border border-[#1C1C20] hover:border-[#FF6B00]/40 transition-colors rounded-2xl p-6 sm:p-8 flex flex-col justify-between">
+            {/* Card 3: 20,000+ MCQ Bank (Violet / Purple Accent) */}
+            <Card className="group relative col-span-full overflow-hidden sm:col-span-3 lg:col-span-2 bg-[#08080A]/90 border border-[#1C1C20] hover:border-violet-500/40 transition-colors rounded-2xl p-6 sm:p-8 flex flex-col justify-between">
               <CardContent className="p-0 flex flex-col items-center text-center">
                 {/* Visual Top Container with Pop-out */}
                 <div className="relative flex h-32 w-full max-w-[260px] items-center justify-center">
                   <div className="w-full rounded-xl bg-[#0E0E12] border border-[#222228] p-4 flex flex-col justify-center space-y-2 shadow-inner transform group-hover:scale-108 group-hover:-translate-y-1 transition-all duration-300">
                     <div className="flex items-center justify-between text-sm">
                       <span className="text-zinc-400 font-semibold">Question Pool</span>
-                      <span className="font-bold text-[#FF6B00] text-base">20,000+</span>
+                      <span className="font-bold text-violet-400 text-base">20,000+</span>
                     </div>
                     <div className="w-full bg-zinc-800 h-2 rounded-full overflow-hidden">
-                      <div className="bg-[#FF6B00] h-full w-full rounded-full" />
+                      <div className="bg-gradient-to-r from-violet-500 to-indigo-500 h-full w-full rounded-full" />
                     </div>
                     <span className="text-xs text-zinc-400 font-semibold">NEET • CAT • PYQs</span>
                   </div>
@@ -97,11 +100,11 @@ export function Features() {
               </CardContent>
             </Card>
 
-            {/* Card 4: 24/7 AI Tutor */}
+            {/* Card 4: 24/7 AI Tutor (Signature Orange) */}
             <Card className="group relative col-span-full overflow-hidden lg:col-span-3 bg-[#08080A]/90 border border-[#1C1C20] hover:border-[#FF6B00]/40 transition-colors rounded-2xl p-6 sm:p-8 min-h-[240px]">
               <CardContent className="p-0 grid h-full sm:grid-cols-2 gap-6 items-center">
                 <div className="relative z-10 flex flex-col justify-center space-y-4">
-                  <div className="relative flex aspect-square size-14 rounded-full border border-white/10 before:absolute before:-inset-1.5 before:rounded-full before:border before:border-white/5 bg-[#0E0E12] items-center justify-center transform group-hover:scale-110 transition-transform">
+                  <div className="relative flex aspect-square size-14 rounded-full border border-orange-500/20 before:absolute before:-inset-1.5 before:rounded-full before:border before:border-orange-500/10 bg-[#0E0E12] items-center justify-center transform group-hover:scale-110 transition-transform">
                     <Sparkles className="size-6 text-[#FF6B00]" strokeWidth={2} />
                   </div>
                   <div>
@@ -123,12 +126,12 @@ export function Features() {
               </CardContent>
             </Card>
 
-            {/* Card 5: Joined by 125,000+ Students */}
-            <Card className="group relative col-span-full overflow-hidden lg:col-span-3 bg-[#08080A]/90 border border-[#1C1C20] hover:border-[#FF6B00]/40 transition-colors rounded-2xl p-6 sm:p-8 min-h-[240px]">
+            {/* Card 5: Joined by 125,000+ Students (Warm Amber & Multi-Hue Badges) */}
+            <Card className="group relative col-span-full overflow-hidden lg:col-span-3 bg-[#08080A]/90 border border-[#1C1C20] hover:border-amber-500/40 transition-colors rounded-2xl p-6 sm:p-8 min-h-[240px]">
               <CardContent className="p-0 grid h-full sm:grid-cols-2 gap-6 items-center">
                 <div className="relative z-10 flex flex-col justify-center space-y-4">
-                  <div className="relative flex aspect-square size-14 rounded-full border border-white/10 before:absolute before:-inset-1.5 before:rounded-full before:border before:border-white/5 bg-[#0E0E12] items-center justify-center transform group-hover:scale-110 transition-transform">
-                    <Users className="size-6 text-[#FF6B00]" strokeWidth={2} />
+                  <div className="relative flex aspect-square size-14 rounded-full border border-amber-500/20 before:absolute before:-inset-1.5 before:rounded-full before:border before:border-amber-500/10 bg-[#0E0E12] items-center justify-center transform group-hover:scale-110 transition-transform">
+                    <Users className="size-6 text-amber-400" strokeWidth={2} />
                   </div>
                   <div>
                     <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-2">
@@ -140,22 +143,22 @@ export function Features() {
                   </div>
                 </div>
 
-                {/* Right Student List Box with Pop-out */}
+                {/* Right Student List Box with Pop-out & Multi-Hue Pills */}
                 <div className="relative z-10 rounded-xl border border-[#1C1C20] p-4 bg-[#0B0B0E] flex flex-col justify-center space-y-3 shadow-inner w-full max-w-[220px] sm:ml-auto transform group-hover:scale-106 group-hover:-translate-y-1 transition-all duration-300">
                   <div className="flex items-center gap-2.5">
-                    <div className="size-7 rounded-full bg-[#FF6B00] text-white flex items-center justify-center text-xs font-bold shrink-0">
+                    <div className="size-7 rounded-full bg-[#FF6B00] text-white flex items-center justify-center text-xs font-bold shrink-0 shadow-sm">
                       A
                     </div>
                     <span className="text-xs sm:text-sm font-bold text-zinc-200 truncate">Aarav M. (AIR 840)</span>
                   </div>
                   <div className="flex items-center gap-2.5">
-                    <div className="size-7 rounded-full bg-zinc-700 text-white flex items-center justify-center text-xs font-bold shrink-0">
+                    <div className="size-7 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs font-bold shrink-0 shadow-sm">
                       P
                     </div>
                     <span className="text-xs sm:text-sm font-bold text-zinc-200 truncate">Pooja K. (99.4%ile)</span>
                   </div>
                   <div className="flex items-center gap-2.5">
-                    <div className="size-7 rounded-full bg-zinc-800 text-white flex items-center justify-center text-xs font-bold shrink-0">
+                    <div className="size-7 rounded-full bg-indigo-600 text-white flex items-center justify-center text-xs font-bold shrink-0 shadow-sm">
                       R
                     </div>
                     <span className="text-xs sm:text-sm font-bold text-zinc-200 truncate">Rohan S. (NEET 680+)</span>
