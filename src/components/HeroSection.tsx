@@ -11,19 +11,19 @@ import { ArrowRight } from "lucide-react";
 export function HeroSection() {
   const avatarUrls = [
     {
-      imageUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=80&h=80&q=80",
+      imageUrl: "/student_1.png",
       profileUrl: "#",
     },
     {
-      imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&h=80&q=80",
+      imageUrl: "/student_2.png",
       profileUrl: "#",
     },
     {
-      imageUrl: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=80&h=80&q=80",
+      imageUrl: "/student_3.png",
       profileUrl: "#",
     },
     {
-      imageUrl: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=80&h=80&q=80",
+      imageUrl: "/student_4.png",
       profileUrl: "#",
     },
   ];
@@ -85,7 +85,7 @@ export function HeroSection() {
           </Link>
         </div>
 
-        {/* Social Proof: 125,000+ students globally */}
+        {/* Social Proof with Extracted Student Avatars */}
         <div className="flex flex-col sm:flex-row items-center gap-4 text-left">
           <AvatarCircles
             avatarUrls={avatarUrls}
