@@ -1,17 +1,36 @@
 "use client";
 
+import { useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Sparkles, Users, Pencil } from "lucide-react";
 import { MiyagiGazeAvatar } from "@/components/MiyagiGazeAvatar";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 export function Features() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Smooth scroll-driven fade: 0 opacity when at top of hero, smoothly fades to 1 as it enters
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start 95%", "start 45%"],
+  });
+
+  const opacity = useTransform(scrollYProgress, [0, 0.85], [0, 1]);
+  const y = useTransform(scrollYProgress, [0, 0.85], [30, 0]);
+
   return (
-    <section id="features" className="py-16 md:py-24 bg-transparent relative z-10">
-      <div className="mx-auto max-w-5xl lg:max-w-6xl px-6">
-        
+    <section
+      id="features"
+      ref={containerRef}
+      className="pt-2 pb-12 md:pt-4 md:pb-16 bg-white dark:bg-black relative z-10 transition-colors"
+    >
+      <motion.div
+        style={{ opacity, y }}
+        className="mx-auto max-w-5xl lg:max-w-6xl px-6"
+      >
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+        <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8">
+          <h2 className="text-3xl sm:text-4xl font-bold text-zinc-950 dark:text-white tracking-tight">
             What we&apos;re building
           </h2>
         </div>
@@ -20,12 +39,12 @@ export function Features() {
           <div className="relative z-10 grid grid-cols-6 gap-3.5 sm:gap-4">
             
             {/* Card 1: 100% NCERT Line-by-Line Questions (Emerald Green) */}
-            <Card className="group relative col-span-full flex overflow-hidden lg:col-span-2 bg-[#08080A]/90 border border-[#1C1C20] hover:border-emerald-500/40 transition-colors rounded-2xl p-5 sm:p-6 flex-col justify-between">
+            <Card className="group relative col-span-full flex overflow-hidden lg:col-span-2 bg-white dark:bg-[#08080A]/90 border border-zinc-200/80 dark:border-[#1C1C20] hover:border-emerald-500/50 dark:hover:border-emerald-500/40 transition-all rounded-2xl p-5 sm:p-6 flex-col justify-between shadow-sm dark:shadow-none">
               <CardContent className="p-0 flex flex-col items-center text-center">
                 {/* Visual Top Container with Pop-out */}
                 <div className="relative flex h-24 w-full max-w-[220px] items-center justify-center">
                   <svg
-                    className="text-emerald-500/15 absolute inset-0 size-full transform group-hover:scale-108 group-hover:-translate-y-1 transition-all duration-300"
+                    className="text-emerald-500/20 dark:text-emerald-500/15 absolute inset-0 size-full transform group-hover:scale-108 group-hover:-translate-y-1 transition-all duration-300"
                     viewBox="0 0 254 104"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -35,80 +54,80 @@ export function Features() {
                       fill="currentColor"
                     />
                   </svg>
-                  <span className="relative z-10 text-4xl sm:text-5xl font-bold text-emerald-400 transform group-hover:scale-110 group-hover:-translate-y-1 transition-all duration-300 inline-block drop-shadow-[0_0_20px_rgba(16,185,129,0.3)]">
+                  <span className="relative z-10 text-4xl sm:text-5xl font-bold text-emerald-600 dark:text-emerald-400 transform group-hover:scale-110 group-hover:-translate-y-1 transition-all duration-300 inline-block drop-shadow-[0_0_20px_rgba(16,185,129,0.3)]">
                     100%
                   </span>
                 </div>
 
                 {/* Content */}
-                <h3 className="mt-6 text-xl sm:text-2xl font-bold text-white tracking-tight">
+                <h3 className="mt-6 text-xl sm:text-2xl font-bold text-zinc-950 dark:text-white tracking-tight">
                   NCERT Line-by-Line
                 </h3>
-                <p className="mt-2 text-xs sm:text-sm font-medium text-zinc-400 max-w-[260px] leading-relaxed">
+                <p className="mt-2 text-xs sm:text-sm font-medium text-zinc-600 dark:text-zinc-400 max-w-[260px] leading-relaxed">
                   Curated passages where each line corresponds to a NEET exam question.
                 </p>
               </CardContent>
             </Card>
 
             {/* Card 2: CBT Mode Practice Tests (Sky Blue / Cyan Pencil) */}
-            <Card className="group relative col-span-full overflow-hidden sm:col-span-3 lg:col-span-2 bg-[#08080A]/90 border border-[#1C1C20] hover:border-sky-500/40 transition-colors rounded-2xl p-5 sm:p-6 flex flex-col justify-between">
+            <Card className="group relative col-span-full overflow-hidden sm:col-span-3 lg:col-span-2 bg-white dark:bg-[#08080A]/90 border border-zinc-200/80 dark:border-[#1C1C20] hover:border-sky-500/50 dark:hover:border-sky-500/40 transition-all rounded-2xl p-5 sm:p-6 flex flex-col justify-between shadow-sm dark:shadow-none">
               <CardContent className="p-0 flex flex-col items-center text-center">
                 {/* Circular Pencil Badge with Pop-out */}
                 <div className="relative flex h-24 w-full items-center justify-center">
-                  <div className="relative flex aspect-square size-20 sm:size-22 rounded-full border border-sky-500/20 before:absolute before:-inset-1 before:rounded-full before:border before:border-sky-500/10 bg-[#0E0E12] shadow-inner items-center justify-center transform group-hover:scale-115 group-hover:-translate-y-1.5 transition-all duration-300">
-                    <Pencil className="size-8 text-sky-400" strokeWidth={2.2} />
+                  <div className="relative flex aspect-square size-20 sm:size-22 rounded-full border border-sky-500/30 before:absolute before:-inset-1 before:rounded-full before:border before:border-sky-500/15 bg-sky-50/50 dark:bg-[#0E0E12] shadow-inner items-center justify-center transform group-hover:scale-115 group-hover:-translate-y-1.5 transition-all duration-300">
+                    <Pencil className="size-8 text-sky-500 dark:text-sky-400" strokeWidth={2.2} />
                   </div>
                 </div>
 
                 {/* Content */}
-                <h3 className="mt-6 text-xl sm:text-2xl font-bold text-white tracking-tight">
+                <h3 className="mt-6 text-xl sm:text-2xl font-bold text-zinc-950 dark:text-white tracking-tight">
                   CBT Practice Tests
                 </h3>
-                <p className="mt-2 text-xs sm:text-sm font-medium text-zinc-400 max-w-[260px] leading-relaxed">
+                <p className="mt-2 text-xs sm:text-sm font-medium text-zinc-600 dark:text-zinc-400 max-w-[260px] leading-relaxed">
                   CBT mode topic-wise practice and full mocks available in English & Hindi.
                 </p>
               </CardContent>
             </Card>
 
             {/* Card 3: 20,000+ MCQ Bank (Violet / Purple Accent) */}
-            <Card className="group relative col-span-full overflow-hidden sm:col-span-3 lg:col-span-2 bg-[#08080A]/90 border border-[#1C1C20] hover:border-violet-500/40 transition-colors rounded-2xl p-5 sm:p-6 flex flex-col justify-between">
+            <Card className="group relative col-span-full overflow-hidden sm:col-span-3 lg:col-span-2 bg-white dark:bg-[#08080A]/90 border border-zinc-200/80 dark:border-[#1C1C20] hover:border-violet-500/50 dark:hover:border-violet-500/40 transition-all rounded-2xl p-5 sm:p-6 flex flex-col justify-between shadow-sm dark:shadow-none">
               <CardContent className="p-0 flex flex-col items-center text-center">
                 {/* Visual Top Container with Pop-out */}
                 <div className="relative flex h-24 w-full max-w-[220px] items-center justify-center">
-                  <div className="w-full rounded-xl bg-[#0E0E12] border border-[#222228] p-3 flex flex-col justify-center space-y-1.5 shadow-inner transform group-hover:scale-108 group-hover:-translate-y-1 transition-all duration-300">
+                  <div className="w-full rounded-xl bg-violet-50/50 dark:bg-[#0E0E12] border border-violet-200/50 dark:border-[#222228] p-3 flex flex-col justify-center space-y-1.5 shadow-inner transform group-hover:scale-108 group-hover:-translate-y-1 transition-all duration-300">
                     <div className="flex items-center justify-between text-xs">
-                      <span className="text-zinc-400 font-semibold">Question Pool</span>
-                      <span className="font-bold text-violet-400 text-sm">20,000+</span>
+                      <span className="text-zinc-600 dark:text-zinc-400 font-semibold">Question Pool</span>
+                      <span className="font-bold text-violet-600 dark:text-violet-400 text-sm">20,000+</span>
                     </div>
-                    <div className="w-full bg-zinc-800 h-1.5 rounded-full overflow-hidden">
+                    <div className="w-full bg-zinc-200 dark:bg-zinc-800 h-1.5 rounded-full overflow-hidden">
                       <div className="bg-gradient-to-r from-violet-500 to-indigo-500 h-full w-full rounded-full" />
                     </div>
-                    <span className="text-[10px] text-zinc-400 font-semibold">NEET • CAT • PYQs</span>
+                    <span className="text-[10px] text-zinc-500 dark:text-zinc-400 font-semibold">NEET • CAT • PYQs</span>
                   </div>
                 </div>
 
                 {/* Content */}
-                <h3 className="mt-6 text-xl sm:text-2xl font-bold text-white tracking-tight">
+                <h3 className="mt-6 text-xl sm:text-2xl font-bold text-zinc-950 dark:text-white tracking-tight">
                   20,000+ MCQ Bank
                 </h3>
-                <p className="mt-2 text-xs sm:text-sm font-medium text-zinc-400 max-w-[260px] leading-relaxed">
+                <p className="mt-2 text-xs sm:text-sm font-medium text-zinc-600 dark:text-zinc-400 max-w-[260px] leading-relaxed">
                   Vast question bank tailored for India exams with detailed explanations.
                 </p>
               </CardContent>
             </Card>
 
             {/* Card 4: 24/7 AI Tutor */}
-            <Card className="group relative col-span-full overflow-hidden lg:col-span-3 bg-[#08080A]/90 border border-[#1C1C20] hover:border-[#FF6B00]/40 transition-colors rounded-2xl p-5 sm:p-7 min-h-[200px]">
+            <Card className="group relative col-span-full overflow-hidden lg:col-span-3 bg-white dark:bg-[#08080A]/90 border border-zinc-200/80 dark:border-[#1C1C20] hover:border-[#FF6B00]/60 dark:hover:border-[#FF6B00]/40 transition-all rounded-2xl p-5 sm:p-7 min-h-[200px] shadow-sm dark:shadow-none">
               <CardContent className="p-0 grid h-full sm:grid-cols-2 gap-4 items-center">
                 <div className="relative z-10 flex flex-col justify-center space-y-3">
-                  <div className="relative flex aspect-square size-11 rounded-full border border-orange-500/20 before:absolute before:-inset-1 before:rounded-full before:border before:border-orange-500/10 bg-[#0E0E12] items-center justify-center transform group-hover:scale-110 transition-transform">
+                  <div className="relative flex aspect-square size-11 rounded-full border border-orange-500/30 before:absolute before:-inset-1 before:rounded-full before:border before:border-orange-500/15 bg-orange-500/10 dark:bg-[#0E0E12] items-center justify-center transform group-hover:scale-110 transition-transform">
                     <Sparkles className="size-5 text-[#FF6B00]" strokeWidth={2} />
                   </div>
                   <div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight mb-1.5">
+                    <h3 className="text-xl sm:text-2xl font-bold text-zinc-950 dark:text-white tracking-tight mb-1.5">
                       24/7 AI Tutor
                     </h3>
-                    <p className="text-xs sm:text-sm font-medium text-zinc-400 leading-relaxed">
+                    <p className="text-xs sm:text-sm font-medium text-zinc-600 dark:text-zinc-400 leading-relaxed">
                       Doubt-solving tutor using the Socratic method that guides students step-by-step toward the answer.
                     </p>
                   </div>
@@ -124,41 +143,41 @@ export function Features() {
             </Card>
 
             {/* Card 5: Joined by 125,000+ Students */}
-            <Card className="group relative col-span-full overflow-hidden lg:col-span-3 bg-[#08080A]/90 border border-[#1C1C20] hover:border-amber-500/40 transition-colors rounded-2xl p-5 sm:p-7 min-h-[200px]">
+            <Card className="group relative col-span-full overflow-hidden lg:col-span-3 bg-white dark:bg-[#08080A]/90 border border-zinc-200/80 dark:border-[#1C1C20] hover:border-amber-500/60 dark:hover:border-amber-500/40 transition-all rounded-2xl p-5 sm:p-7 min-h-[200px] shadow-sm dark:shadow-none">
               <CardContent className="p-0 grid h-full sm:grid-cols-2 gap-4 items-center">
                 <div className="relative z-10 flex flex-col justify-center space-y-3">
-                  <div className="relative flex aspect-square size-11 rounded-full border border-amber-500/20 before:absolute before:-inset-1 before:rounded-full before:border before:border-amber-500/10 bg-[#0E0E12] items-center justify-center transform group-hover:scale-110 transition-transform">
-                    <Users className="size-5 text-amber-400" strokeWidth={2} />
+                  <div className="relative flex aspect-square size-11 rounded-full border border-amber-500/30 before:absolute before:-inset-1 before:rounded-full before:border before:border-amber-500/15 bg-amber-500/10 dark:bg-[#0E0E12] items-center justify-center transform group-hover:scale-110 transition-transform">
+                    <Users className="size-5 text-amber-500 dark:text-amber-400" strokeWidth={2} />
                   </div>
                   <div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight mb-1.5">
+                    <h3 className="text-xl sm:text-2xl font-bold text-zinc-950 dark:text-white tracking-tight mb-1.5">
                       125,000+ Aspirants
                     </h3>
-                    <p className="text-xs sm:text-sm font-medium text-zinc-400 leading-relaxed">
+                    <p className="text-xs sm:text-sm font-medium text-zinc-600 dark:text-zinc-400 leading-relaxed">
                       Practicing daily with personalized study tracks and diagnostic testing.
                     </p>
                   </div>
                 </div>
 
                 {/* Right Student List Box with Pop-out */}
-                <div className="relative z-10 rounded-xl border border-[#1C1C20] p-3.5 bg-[#0B0B0E] flex flex-col justify-center space-y-2.5 shadow-inner w-full max-w-[200px] sm:ml-auto transform group-hover:scale-106 group-hover:-translate-y-1 transition-all duration-300">
+                <div className="relative z-10 rounded-xl border border-zinc-200 dark:border-[#1C1C20] p-3.5 bg-zinc-50 dark:bg-[#0B0B0E] flex flex-col justify-center space-y-2.5 shadow-inner w-full max-w-[200px] sm:ml-auto transform group-hover:scale-106 group-hover:-translate-y-1 transition-all duration-300">
                   <div className="flex items-center gap-2">
                     <div className="size-6 rounded-full bg-[#FF6B00] text-white flex items-center justify-center text-[10px] font-bold shrink-0 shadow-sm">
                       A
                     </div>
-                    <span className="text-xs font-bold text-zinc-200 truncate">Aarav M. (AIR 840)</span>
+                    <span className="text-xs font-bold text-zinc-800 dark:text-zinc-200 truncate">Aarav M. (AIR 840)</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <div className="size-6 rounded-full bg-emerald-600 text-white flex items-center justify-center text-[10px] font-bold shrink-0 shadow-sm">
+                    <div className="size-6 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs font-bold shrink-0 shadow-sm">
                       P
                     </div>
-                    <span className="text-xs font-bold text-zinc-200 truncate">Pooja K. (99.4%ile)</span>
+                    <span className="text-xs font-bold text-zinc-800 dark:text-zinc-200 truncate">Pooja K. (99.4%ile)</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <div className="size-6 rounded-full bg-indigo-600 text-white flex items-center justify-center text-[10px] font-bold shrink-0 shadow-sm">
+                    <div className="size-6 rounded-full bg-indigo-600 text-white flex items-center justify-center text-xs font-bold shrink-0 shadow-sm">
                       R
                     </div>
-                    <span className="text-xs font-bold text-zinc-200 truncate">Rohan S. (NEET 680+)</span>
+                    <span className="text-xs font-bold text-zinc-800 dark:text-zinc-200 truncate">Rohan S. (NEET 680+)</span>
                   </div>
                 </div>
               </CardContent>
@@ -166,7 +185,7 @@ export function Features() {
 
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

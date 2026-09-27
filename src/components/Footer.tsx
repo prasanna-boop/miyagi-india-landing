@@ -5,11 +5,11 @@ import { FaDiscord, FaInstagram, FaXTwitter, FaTiktok } from "react-icons/fa6";
 
 export function Footer() {
   return (
-    <footer className="bg-black border-t border-[#1C1C1E] text-zinc-500 text-xs py-16">
+    <footer className="bg-zinc-50 dark:bg-black border-t border-zinc-200 dark:border-[#1C1C1E] text-zinc-500 dark:text-zinc-500 text-xs py-16 transition-colors">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Top Footer Bar */}
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-10 border-b border-[#1C1C1E]">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-10 border-b border-zinc-200 dark:border-[#1C1C1E]">
           
           {/* Brand */}
           <div className="flex items-center gap-3">
@@ -20,19 +20,19 @@ export function Footer() {
               height={28}
               className="inline-block object-contain"
             />
-            <span className="text-base font-bold text-white tracking-tight">
+            <span className="text-base font-bold text-zinc-900 dark:text-white tracking-tight">
               Miyagi Labs
             </span>
           </div>
 
           {/* Social Links */}
-          <div className="flex items-center gap-5 text-zinc-400">
+          <div className="flex items-center gap-5 text-zinc-500 dark:text-zinc-400">
             <Link
               href="https://discord.com/invite/PwMXFj2mae"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Discord"
-              className="hover:text-white transition-colors"
+              className="hover:text-zinc-900 dark:hover:text-white transition-colors"
             >
               <FaDiscord className="w-4 h-4" />
             </Link>
@@ -41,7 +41,7 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="hover:text-white transition-colors"
+              className="hover:text-zinc-900 dark:hover:text-white transition-colors"
             >
               <FaInstagram className="w-4 h-4" />
             </Link>
@@ -50,7 +50,7 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="X (Twitter)"
-              className="hover:text-white transition-colors"
+              className="hover:text-zinc-900 dark:hover:text-white transition-colors"
             >
               <FaXTwitter className="w-4 h-4" />
             </Link>
@@ -59,7 +59,7 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="TikTok"
-              className="hover:text-white transition-colors"
+              className="hover:text-zinc-900 dark:hover:text-white transition-colors"
             >
               <FaTiktok className="w-4 h-4" />
             </Link>
@@ -71,7 +71,7 @@ export function Footer() {
               href="https://apps.apple.com/us/app/miyagi-labs/id6749786901"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#0E0E10] border border-[#222226] hover:border-[#333338] transition-colors"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-zinc-900 text-white dark:bg-[#0E0E10] border border-zinc-800 dark:border-[#222226] hover:border-zinc-500 transition-colors"
             >
               <svg className="w-4 h-4 fill-white" viewBox="0 0 24 24">
                 <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.61-.75 1.04-1.8 1.01-2.87-.96.04-2.12.65-2.79 1.43-.58.68-1.1 1.74-1.02 2.79 1.07.08 2.18-.57 2.8-1.35z"/>
@@ -83,7 +83,7 @@ export function Footer() {
               href="https://play.google.com/store/apps/details?id=com.miyagilabs.app"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#0E0E10] border border-[#222226] hover:border-[#333338] transition-colors"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-zinc-900 text-white dark:bg-[#0E0E10] border border-zinc-800 dark:border-[#222226] hover:border-zinc-500 transition-colors"
             >
               <svg className="w-4 h-4" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M47.2 24.3C40.6 31.4 36.8 42.6 36.8 56.4V455.6C36.8 469.4 40.6 480.6 47.2 487.7L51.3 491.5L276.9 265.9V256.1L51.3 20.5L47.2 24.3Z" fill="#00D4FF"/>
@@ -108,13 +108,13 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-4 border-t border-[#1C1C1E] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
+        <div className="pt-4 border-t border-zinc-200 dark:border-[#1C1C1E] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
           <p>© 2026 Miyagi Labs. All rights reserved.</p>
           <div className="flex items-center gap-6">
-            <Link href="https://miyagilabs.ai/terms" className="hover:text-white transition-colors font-medium">
+            <Link href="https://miyagilabs.ai/terms" className="hover:text-zinc-900 dark:hover:text-white transition-colors font-medium">
               Terms of Service
             </Link>
-            <Link href="https://miyagilabs.ai/privacy" className="hover:text-white transition-colors font-medium">
+            <Link href="https://miyagilabs.ai/privacy" className="hover:text-zinc-900 dark:hover:text-white transition-colors font-medium">
               Privacy Policy
             </Link>
           </div>

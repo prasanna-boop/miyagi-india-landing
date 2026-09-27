@@ -1,5 +1,6 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useTheme } from "next-themes";
 
 function normalizeColor(hexCode: number): number[] {
   return [
@@ -24,7 +25,7 @@ class MiniGl {
 
   constructor(canvas: HTMLCanvasElement) {
     this.canvas = canvas;
-    const gl = this.canvas.getContext("webgl", { antialias: true });
+    const gl = this.canvas.getContext("webgl", { antialias: true, alpha: true });
     if (!gl) throw new Error("WebGL not supported");
     this.gl = gl;
 
@@ -664,13 +665,13 @@ void main() {
 }
 
 interface GradientWaveProps {
-  colors?: string[]; // gradient colors
-  isPlaying?: boolean; // animation toggle
-  className?: string; // custom Tailwind classes
-  shadowPower?: number; // strength of top darkening
-  darkenTop?: boolean; // enable/disable top shadow
-  noiseSpeed?: number; // global noise animation speed
-  noiseFrequency?: [number, number]; // global noise frequency
+  colors?: string[];
+  isPlaying?: boolean;
+  className?: string;
+  shadowPower?: number;
+  darkenTop?: boolean;
+  noiseSpeed?: number;
+  noiseFrequency?: [number, number];
   deform?: {
     incline?: number;
     offsetTop?: number;
@@ -684,7 +685,7 @@ interface GradientWaveProps {
 }
 
 export function GradientWave({
-  colors = ["#000000", "#1a0800", "#ff6b00", "#050505", "#e05e00", "#000000"],
+  colors,
   isPlaying = true,
   className = "",
   shadowPower = 8,
@@ -695,9 +696,27 @@ export function GradientWave({
 }: GradientWaveProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const gradientRef = useRef<Gradient | null>(null);
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const isDark = mounted ? resolvedTheme === "dark" : true;
+
+  // Vibrant, prominent orange palette tailored for dark and light modes
+  const activeColors = colors || (isDark
+    ? ["#000000", "#180600", "#FF6B00", "#050505", "#481500", "#000000"]
+    : ["#FFFFFF", "#FFF3E6", "#FF6B00", "#FFF8F0", "#FF8533", "#FFFFFF"]);
 
   useEffect(() => {
     if (!containerRef.current) return;
+
+    // Remove old canvas if any
+    while (containerRef.current.firstChild) {
+      containerRef.current.removeChild(containerRef.current.firstChild);
+    }
 
     const canvas = document.createElement("canvas");
     Object.assign(canvas.style, {
@@ -711,10 +730,9 @@ export function GradientWave({
     containerRef.current.appendChild(canvas);
 
     try {
-      const gradient = new Gradient(canvas, colors);
+      const gradient = new Gradient(canvas, activeColors);
       gradientRef.current = gradient;
 
-      // apply props to uniforms
       gradient.mesh.material.uniforms.u_shadow_power.value = shadowPower;
       gradient.mesh.material.uniforms.u_darken_top.value = darkenTop ? 1 : 0;
       gradient.mesh.material.uniforms.u_global.value.noiseFreq.value =
@@ -722,7 +740,6 @@ export function GradientWave({
       gradient.mesh.material.uniforms.u_global.value.noiseSpeed.value =
         noiseSpeed;
 
-      // deform settings (only if provided)
       Object.assign(gradient.mesh.material.uniforms.u_vertDeform.value, {
         ...gradient.mesh.material.uniforms.u_vertDeform.value,
         ...deform,
@@ -740,13 +757,14 @@ export function GradientWave({
       }
     };
   }, [
-    colors,
+    activeColors,
     isPlaying,
     shadowPower,
     darkenTop,
     noiseSpeed,
     noiseFrequency,
     deform,
+    isDark,
   ]);
 
   return (
