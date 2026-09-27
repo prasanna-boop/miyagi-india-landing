@@ -1,26 +1,80 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-background: #000000;
+  --color-foreground: #FFFFFF;
+  --font-sans: var(--font-outfit), sans-serif;
+  --font-mono: var(--font-outfit), sans-serif;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --color-miyagi-orange: #FF6B00;
+  --color-miyagi-orange-hover: #E05E00;
+
+  --animate-rippling: rippling var(--duration, 600ms) ease-out;
+  @keyframes rippling {
+    0% {
+      opacity: 0.5;
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(3.5);
+      opacity: 0;
+    }
   }
 }
 
+:root {
+  --background: #000000;
+  --foreground: #FFFFFF;
+  --card: #080808;
+  --card-foreground: #FFFFFF;
+  --popover: #080808;
+  --popover-foreground: #FFFFFF;
+  --primary: #FF6B00;
+  --primary-foreground: #FFFFFF;
+  --secondary: #121212;
+  --secondary-foreground: #FFFFFF;
+  --muted: #171717;
+  --muted-foreground: #8E8E93;
+  --border: #1C1C1E;
+  --input: #1C1C1E;
+  --ring: #FF6B00;
+  --radius: 0.5rem;
+}
+
+*, html, body {
+  font-family: var(--font-outfit), sans-serif !important;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #000000;
+  color: #FFFFFF;
+  font-family: var(--font-outfit), sans-serif;
+  letter-spacing: -0.015em;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: #FF6B00;
+  color: #FFFFFF;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb {
+  background: #222222;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #333333;
 }
